@@ -1,0 +1,782 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Adnan Hamza Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout: a streaming-service home screen. Profile gate, hero banner, then horizontal rows of cards. Dark by design, single look. */
+:root {
+  --bg: #0b0b10;
+  --surface: #15151c;
+  --surface-2: #1e1e27;
+  --line: #2b2b36;
+  --fg: #f4f2ee;
+  --muted: #a09eab;
+  --accent: #ffb224;
+  --accent-ink: #1a1204;
+  --font-display: 'Bebas Neue', 'Arial Narrow', Impact, sans-serif;
+  --font-body: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+  --gutter-l: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+  --maxw: 1200px;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  overflow-x: clip;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 10;
+  background: var(--bg);
+}
+button { font: inherit; color: inherit; cursor: pointer; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { text-wrap: balance; }
+
+.wrap {
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-left: var(--gutter-l);
+  padding-right: var(--gutter-r);
+}
+
+/* ---------- Nav ---------- */
+.nav {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 20;
+  background: color-mix(in srgb, var(--bg) 86%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent);
+}
+.nav-in { display: flex; align-items: center; gap: 28px; padding-block: 12px; }
+.brand {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  color: var(--accent);
+  line-height: 1;
+}
+.links { display: flex; gap: 22px; flex: 1; }
+.links a { font-size: 0.9rem; color: var(--muted); text-decoration: none; }
+.links a:hover { color: var(--fg); }
+.profile-btn {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: 0;
+  padding: 4px 0;
+  font-size: 0.9rem;
+}
+.avatar {
+  width: 30px; height: 30px;
+  border-radius: 4px;
+  display: grid; place-items: center;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  background: hsl(var(--h, 38) 70% 48%);
+  color: #14100a;
+}
+
+/* ---------- Hero ---------- */
+.hero { position: relative; padding-block: 56px 72px; overflow: hidden; }
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(55% 90% at 88% 15%, hsl(38 90% 46% / 0.30), transparent 62%),
+    radial-gradient(50% 80% at 8% 105%, hsl(265 60% 38% / 0.32), transparent 66%),
+    linear-gradient(180deg, #14141c 0%, var(--bg) 100%);
+}
+.hero-bg::after {
+  content: "";
+  position: absolute; inset: auto 0 0 0; height: 40%;
+  background: linear-gradient(180deg, transparent, var(--bg));
+}
+.mono-mark {
+  position: absolute;
+  right: max(2vw, 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-size: clamp(12rem, 34vw, 30rem);
+  line-height: 0.8;
+  color: transparent;
+  -webkit-text-stroke: 1px hsl(38 60% 60% / 0.22);
+  letter-spacing: 0.02em;
+  user-select: none;
+  pointer-events: none;
+}
+.hero-in { position: relative; display: grid; gap: 18px; }
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(3.8rem, 13vw, 8.5rem);
+  line-height: 0.88;
+  letter-spacing: 0.01em;
+}
+.role { font-size: clamp(1.05rem, 2.4vw, 1.35rem); font-weight: 500; }
+.meta {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px;
+  font-size: 0.9rem; color: var(--muted);
+}
+.chip {
+  border: 1px solid var(--muted);
+  border-radius: 3px;
+  padding: 1px 8px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--fg);
+}
+.pitch { max-width: 58ch; font-size: 1.08rem; color: #dcdae2; min-height: 3.4em; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  border: 0; border-radius: 4px;
+  padding: 11px 24px;
+  font-weight: 600; font-size: 1rem;
+  text-decoration: none;
+}
+.btn svg { width: 18px; height: 18px; fill: currentColor; }
+.btn.primary { background: var(--accent); color: var(--accent-ink); }
+.btn.primary:hover { background: #ffc24f; }
+.btn.ghost { background: color-mix(in srgb, #8a8898 35%, transparent); color: var(--fg); }
+.btn.ghost:hover { background: color-mix(in srgb, #8a8898 50%, transparent); }
+.credits { display: grid; gap: 8px; margin: 14px 0 0; max-width: 62ch; font-size: 0.9rem; }
+.credits div { display: grid; grid-template-columns: 76px 1fr; gap: 12px; }
+.credits dt { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); padding-top: 3px; }
+.credits dd { margin: 0; color: #dcdae2; min-width: 0; }
+
+/* ---------- Rows ---------- */
+main > section { scroll-margin-top: 64px; }
+.row { padding-top: 8px; padding-bottom: 28px; }
+.row-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 16px; padding-bottom: 6px; }
+.row-head h2 { font-size: 1.25rem; font-weight: 600; }
+.hint { font-family: var(--font-mono); font-size: 0.74rem; color: var(--muted); }
+.scroller-wrap { position: relative; }
+.scroller {
+  display: flex; gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  padding-block: 14px;
+  padding-left: calc(max(0px, (100% - var(--maxw)) / 2) + var(--gutter-l));
+  padding-right: var(--gutter-r);
+  scroll-padding-left: calc(max(0px, (100% - var(--maxw)) / 2) + var(--gutter-l));
+  scrollbar-width: none;
+}
+.scroller::-webkit-scrollbar { display: none; }
+.scroller > * { scroll-snap-align: start; flex: 0 0 auto; }
+.arrow {
+  position: absolute; top: 0; bottom: 0; z-index: 2;
+  width: 52px;
+  border: 0;
+  display: grid; place-items: center;
+  font-size: 2rem; line-height: 1;
+  color: var(--fg);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.arrow.l { left: 0; background: linear-gradient(90deg, var(--bg) 20%, transparent); }
+.arrow.r { right: 0; background: linear-gradient(270deg, var(--bg) 20%, transparent); }
+@media (hover: hover) { .scroller-wrap:hover .arrow, .arrow:focus-visible { opacity: 1; } }
+@media (hover: none) { .arrow { display: none; } }
+
+.card {
+  width: 260px;
+  display: grid; gap: 8px;
+  background: none; border: 0; padding: 0;
+  text-align: left;
+}
+.thumb {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  border-radius: 5px;
+  overflow: hidden;
+  background: linear-gradient(135deg, hsl(var(--h) 58% 36%), hsl(calc(var(--h) + 35) 55% 13%));
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.card:hover .thumb, .card:focus-visible .thumb { transform: scale(1.05); box-shadow: 0 12px 30px rgb(0 0 0 / 0.55); }
+.ini {
+  position: absolute; right: 12px; top: 2px;
+  font-family: var(--font-display);
+  font-size: 5.6rem; line-height: 1;
+  color: hsl(var(--h) 80% 90% / 0.2);
+}
+.co {
+  position: absolute; left: 14px; bottom: 18px; right: 14px;
+  font-family: var(--font-display);
+  font-size: 1.9rem; line-height: 1; letter-spacing: 0.02em;
+}
+.bar { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: rgb(255 255 255 / 0.22); }
+.bar i { display: block; height: 100%; background: var(--accent); }
+.cap { display: grid; gap: 1px; min-width: 0; }
+.cap strong { font-weight: 600; font-size: 0.95rem; }
+.dates { font-family: var(--font-mono); font-size: 0.74rem; color: var(--muted); }
+
+.tile {
+  width: 232px; min-height: 150px;
+  display: grid; align-content: space-between; gap: 14px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+}
+.tile h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.9rem; line-height: 1; letter-spacing: 0.02em; }
+.tile p { font-size: 0.88rem; color: var(--muted); }
+.tile .tag { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+.tile.sm { width: 190px; min-height: 110px; }
+.tile.sm h3 { font-size: 1.6rem; }
+
+/* ---------- Education + contact ---------- */
+.feature {
+  display: grid; gap: 6px;
+  max-width: 640px;
+  padding: 22px;
+  background: linear-gradient(135deg, var(--surface-2), var(--surface));
+  border: 1px solid var(--line);
+  border-radius: 5px;
+}
+.feature h3 { font-family: var(--font-display); font-weight: 400; font-size: 2.4rem; line-height: 1; letter-spacing: 0.02em; }
+.feature .tag { font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; max-width: 900px; }
+.contact {
+  display: grid; gap: 6px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  min-width: 0;
+}
+.contact .lab { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.contact .val { font-size: 1.05rem; font-weight: 500; overflow-wrap: anywhere; user-select: all; }
+.copy {
+  justify-self: start;
+  background: var(--surface-2); border: 1px solid var(--line); border-radius: 4px;
+  padding: 4px 12px; font-size: 0.82rem;
+}
+.copy:hover { border-color: var(--accent); }
+.section-pad { padding-block: 22px 12px; }
+.section-pad h2 { font-size: 1.25rem; font-weight: 600; padding-bottom: 12px; }
+footer { padding-block: 36px 48px; color: var(--muted); font-size: 0.85rem; }
+
+/* ---------- Dialog ---------- */
+dialog {
+  width: min(680px, calc(100% - 32px));
+  max-height: calc(100% - 32px);
+  padding: 0; border: 1px solid var(--line); border-radius: 8px;
+  background: var(--surface); color: var(--fg);
+  overflow: auto;
+}
+dialog::backdrop { background: rgb(0 0 0 / 0.72); }
+.dlg-top {
+  position: relative; min-height: 130px;
+  display: grid; align-content: end; gap: 2px;
+  padding: 18px 22px;
+  background: linear-gradient(135deg, hsl(var(--h, 38) 58% 34%), hsl(calc(var(--h, 38) + 35) 55% 12%));
+}
+.dlg-top h2 { font-family: var(--font-display); font-weight: 400; font-size: clamp(2.2rem, 7vw, 3.2rem); line-height: 0.95; letter-spacing: 0.02em; }
+.dlg-top .kick { font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgb(255 255 255 / 0.75); }
+.close {
+  position: absolute; top: 10px; right: 10px;
+  width: 34px; height: 34px;
+  border: 0; border-radius: 50%;
+  background: rgb(0 0 0 / 0.55); font-size: 1.3rem; line-height: 1;
+}
+.dlg-body { display: grid; gap: 14px; padding: 20px 22px 24px; }
+.dlg-body ul { margin: 0; padding-left: 1.1em; display: grid; gap: 8px; }
+.dlg-body li::marker { color: var(--accent); }
+.dlg-body .dates { font-size: 0.8rem; }
+
+/* ---------- Profile gate ---------- */
+.gate {
+  position: fixed; inset: 0; z-index: 50;
+  background: var(--bg);
+  overflow-y: auto;
+  display: grid; place-items: center;
+  padding: max(24px, env(safe-area-inset-top, 0px)) var(--gutter-r) max(24px, env(safe-area-inset-bottom, 0px)) var(--gutter-l);
+}
+.gate-in { display: grid; gap: 32px; justify-items: center; text-align: center; }
+.gate h2 { font-family: var(--font-display); font-weight: 400; font-size: clamp(2.6rem, 8vw, 4.4rem); letter-spacing: 0.03em; line-height: 1; }
+.profiles { display: flex; flex-wrap: wrap; justify-content: center; gap: 22px; }
+.prof { background: none; border: 0; padding: 0; display: grid; gap: 10px; justify-items: center; width: 130px; color: var(--muted); }
+.prof .av {
+  width: 130px; height: 130px; border-radius: 6px;
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-size: 4.4rem;
+  background: hsl(var(--h) 65% 46%); color: #14100a;
+  border: 3px solid transparent;
+  transition: border-color 0.15s, transform 0.15s;
+}
+.prof:hover, .prof:focus-visible { color: var(--fg); }
+.prof:hover .av, .prof:focus-visible .av { border-color: var(--fg); transform: scale(1.04); }
+.prof small { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.04em; margin-top: -4px; }
+.skip { background: none; border: 1px solid var(--line); border-radius: 4px; padding: 8px 18px; color: var(--muted); font-size: 0.9rem; }
+.skip:hover { color: var(--fg); border-color: var(--muted); }
+
+@media (max-width: 720px) {
+  .links { display: none; }
+  .hero { padding-block: 36px 48px; }
+  .mono-mark { opacity: 0.6; }
+  .card { width: 230px; }
+  .co { font-size: 1.6rem; }
+  .prof, .prof .av { width: 104px; }
+  .prof .av { height: 104px; font-size: 3.4rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+
+/* UX/UI refresh: professional portfolio system */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap');
+:root{--bg:#f5f7fb;--surface:#fff;--surface-2:#edf3f7;--line:#dfe7ef;--fg:#142536;--muted:#647589;--accent:#0f9b8e;--accent-ink:#fff;--font-display:'Manrope',sans-serif;--font-body:'DM Sans',system-ui,sans-serif;--font-mono:'IBM Plex Mono',monospace;--maxw:1160px;color-scheme:light}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body)}
+.nav{background:rgb(255 255 255 / .9);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.brand{font-family:var(--font-display);font-weight:800;letter-spacing:-.04em;color:#102b3f}
+.links a{font-weight:600}.links a:hover{color:var(--accent)}
+.profile-btn{background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 12px 5px 5px;font-weight:600}
+.avatar{border-radius:50%;background:#dff7f1;color:#08796f}
+.hero{padding-block:76px 70px;background:linear-gradient(120deg,#f5f7fb,#eef7f6 58%,#e6f4f2);border-bottom:1px solid var(--line)}
+.hero-bg{background:radial-gradient(ellipse at 82% 15%,rgb(15 155 142 / .13),transparent 38%),radial-gradient(ellipse at 10% 95%,rgb(25 70 110 / .07),transparent 38%)}
+.hero-bg:after{content:"";position:absolute;inset:0;background-image:radial-gradient(#9cbab8 .7px,transparent .7px);background-size:20px 20px;opacity:.22;mask-image:linear-gradient(90deg,transparent,black)}
+.mono-mark{font-size:clamp(12rem,30vw,25rem);letter-spacing:-.12em;-webkit-text-stroke:1px rgb(15 155 142 / .17);opacity:1}
+.eyebrow{color:#08796f;font-family:var(--font-mono);letter-spacing:.12em}.eyebrow:before{content:"";display:inline-block;width:25px;height:2px;background:var(--accent);margin-right:9px;vertical-align:middle}
+h1{font-family:var(--font-display);font-weight:800;letter-spacing:-.075em;line-height:1.02;color:#102b3f}
+.role{color:#40566a}.meta{color:var(--muted)}.chip{border:1px solid #b8d9d4;border-radius:999px;background:rgb(255 255 255 / .7);color:#08796f}
+.pitch{color:#40566a}.credits dd{color:#40566a}.credits dt{color:var(--muted)}
+.btn{border-radius:10px;transition:transform .18s,background .18s,box-shadow .18s}.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:var(--accent);color:#fff;box-shadow:0 7px 18px rgb(15 155 142 / .18)}.btn.primary:hover{background:#087f75}
+.btn.ghost{background:#fff;border:1px solid var(--line);color:#102b3f}.btn.ghost:hover{border-color:#8acdc4}
+.row{padding-top:32px;padding-bottom:20px}.row-head h2,.section-pad h2{font-family:var(--font-display);font-weight:800;letter-spacing:-.035em;color:#102b3f}
+.scroller{gap:16px;padding-block:16px 20px;scrollbar-width:thin;scrollbar-color:#bfd4d3 transparent}
+.arrow{border:1px solid var(--line);border-radius:12px;color:#102b3f;background:rgb(255 255 255 / .92);box-shadow:0 4px 15px rgb(18 43 63 / .08)}
+.card{width:270px;gap:11px}.thumb{border-radius:13px;border:1px solid rgb(20 37 54 / .06);transition:transform .22s,box-shadow .22s}
+.card:hover .thumb,.card:focus-visible .thumb{transform:translateY(-3px);box-shadow:0 12px 26px rgb(18 43 63 / .12)}
+.ini{font-family:var(--font-display);font-weight:800;letter-spacing:-.08em;color:hsl(var(--h) 45% 48% / .18)}
+.co{font-family:var(--font-display);font-weight:800;letter-spacing:-.04em;color:#102b3f}.bar{background:rgb(20 37 54 / .1)}.bar i{background:var(--accent)}
+.cap strong{color:#102b3f}.dates{color:var(--muted)}
+.tile{width:235px;min-height:165px;padding:19px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 4px 14px rgb(18 43 63 / .025);transition:transform .2s,border-color .2s,box-shadow .2s}
+.tile:hover{transform:translateY(-3px);border-color:#a6d9d2;box-shadow:0 10px 24px rgb(18 43 63 / .07)}
+.tile h3{font-family:var(--font-display);font-weight:800;letter-spacing:-.035em;color:#102b3f}.tile p{color:var(--muted)}.tile .tag{color:#08796f;font-family:var(--font-mono)}
+.tile.sm{width:190px;min-height:120px}.tile.sm h3{font-size:1.35rem}
+.feature{max-width:720px;padding:26px;background:linear-gradient(135deg,#fff,#f0f8f7);border:1px solid var(--line);border-radius:16px;box-shadow:0 7px 24px rgb(18 43 63 / .04)}
+.feature h3{font-family:var(--font-display);font-weight:800;letter-spacing:-.04em;color:#102b3f}.feature .tag{color:#08796f}.feature p{color:var(--muted)}
+.contact-grid{gap:14px}.contact{padding:19px;background:#fff;border:1px solid var(--line);border-radius:14px}.contact .lab{color:var(--muted)}.contact .val{color:#102b3f}.copy{background:#dff7f1;border:1px solid #c4e9e3;border-radius:8px;color:#08796f;font-weight:700}.copy:hover{background:#c9f0e9}
+.section-pad{padding-block:34px 12px}footer{padding-block:42px 48px;color:var(--muted);border-top:1px solid var(--line);margin-top:36px}
+dialog{border:1px solid var(--line);border-radius:18px;background:#fff;color:var(--fg);box-shadow:0 24px 80px rgb(15 35 50 / .25)}
+dialog::backdrop{background:rgb(13 31 45 / .48);backdrop-filter:blur(4px)}
+.dlg-top{min-height:150px;padding:25px 28px;background:linear-gradient(135deg,hsl(var(--h,170) 43% 94%),#f6fafc);border-bottom:1px solid var(--line)}
+.dlg-top h2{font-family:var(--font-display);font-weight:800;letter-spacing:-.05em;color:#102b3f}.dlg-top .kick{color:#08796f}
+.close{width:36px;height:36px;border:1px solid var(--line);border-radius:50%;background:#fff;color:#102b3f}.dlg-body{padding:24px 28px 30px;color:#40566a}.dlg-body li::marker{color:var(--accent)}
+.gate{background:linear-gradient(135deg,#f5f7fb,#e8f5f2)}
+.gate-in{gap:24px}.gate h2{font-family:var(--font-display);font-weight:800;letter-spacing:-.06em;color:#102b3f}
+.profiles{gap:16px}.prof{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 14px;color:#102b3f;box-shadow:0 7px 22px rgb(18 43 63 / .04);transition:transform .18s,border-color .18s,box-shadow .18s}
+.prof:hover,.prof:focus-visible{border-color:#7fcac0;transform:translateY(-4px);box-shadow:0 14px 30px rgb(18 43 63 / .09)}
+.prof .av{width:76px;height:76px;border-radius:22px;background:#dff7f1;color:#08796f;border:0;font-family:var(--font-display);font-weight:800}
+.prof[data-p="client"] .av{background:#e6efff;color:#345f9d}.prof[data-p="friend"] .av{background:#f2eafa;color:#8654a4}
+.prof small{color:var(--muted)}.skip{background:transparent;border:1px solid #c8d6de;border-radius:9px;padding:10px 17px;color:var(--muted);font-weight:600}.skip:hover{color:#102b3f;border-color:#8eaaa9;background:rgb(255 255 255 / .6)}
+@media(max-width:800px){.links{gap:12px}.links a{font-size:.8rem}.nav-in{gap:14px}.mono-mark{right:0;opacity:.7}.hero{padding-block:55px}.arrow{display:none}}
+@media(max-width:650px){.links{display:none}.hero{padding-block:44px 48px}.mono-mark{font-size:12rem;top:28%;right:-8%}.card{width:245px}.tile{width:220px}.profiles{gap:9px}.prof{padding:14px 8px}.prof .av{width:60px;height:60px;border-radius:17px;font-size:1.8rem}.prof small{font-size:.57rem}.dlg-top{padding:22px 20px}.dlg-body{padding:20px}.feature{padding:21px}}
+@media(max-width:390px){.profiles{grid-template-columns:1fr;max-width:300px}.prof{grid-template-columns:54px 1fr;justify-items:start;text-align:left;align-items:center;padding:12px}.prof .av{grid-row:span 2;width:48px;height:48px;font-size:1.5rem;border-radius:13px}.prof small{margin:0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+
+/* Netflix-inspired theme: near-black surfaces, white type, signature red accent */
+:root{--bg:#141414;--surface:#1f1f1f;--surface-2:#2a2a2a;--line:#383838;--fg:#f5f5f1;--muted:#b3b3b3;--accent:#e50914;--accent-ink:#ffffff;color-scheme:dark}
+body{background:#141414;color:#f5f5f1}
+.nav{background:rgb(20 20 20 / .94);border-bottom:1px solid #292929}
+.brand{color:#e50914}
+.links a:hover{color:#e50914}
+.profile-btn{background:#1f1f1f;color:#f5f5f1;border-color:#383838}
+.avatar{background:#e50914;color:#fff}
+.hero{background:linear-gradient(120deg,#141414,#191919 58%,#240d10);border-bottom:1px solid #303030}
+.hero-bg{background:radial-gradient(ellipse at 82% 15%,rgb(229 9 20 / .19),transparent 38%),radial-gradient(ellipse at 10% 95%,rgb(255 255 255 / .035),transparent 38%)}
+.hero-bg:after{background-image:radial-gradient(#777 .7px,transparent .7px);opacity:.12}
+.mono-mark{-webkit-text-stroke:1px rgb(229 9 20 / .24)}
+.eyebrow{color:#ff454d}.eyebrow:before{background:#e50914}
+h1,.row-head h2,.section-pad h2,.tile h3,.feature h3,.dlg-top h2,.gate h2{color:#f5f5f1}
+.role,.pitch,.credits dd{color:#d0d0d0}
+.meta,.credits dt,.dates,.tile p,.feature p,.contact .lab,.prof small,footer{color:#b3b3b3}
+.chip{border-color:#5a292c;background:rgb(229 9 20 / .10);color:#ff6269}
+.btn{border-radius:6px}
+.btn.primary{background:#e50914;color:#fff;box-shadow:0 7px 18px rgb(229 9 20 / .22)}
+.btn.primary:hover{background:#b80710}
+.btn.ghost{background:#292929;border:1px solid #454545;color:#f5f5f1}
+.btn.ghost:hover{border-color:#e50914;background:#333}
+.arrow{border-color:#414141;color:#f5f5f1;background:rgb(31 31 31 / .96);box-shadow:0 4px 15px rgb(0 0 0 / .25)}
+.thumb{border-color:#383838}
+.card:hover .thumb,.card:focus-visible .thumb{box-shadow:0 12px 26px rgb(0 0 0 / .35)}
+.co,.cap strong{color:#f5f5f1}
+.bar{background:#3b3b3b}.bar i{background:#e50914}
+.tile{background:#1f1f1f;border-color:#383838;box-shadow:0 4px 14px rgb(0 0 0 / .12)}
+.tile:hover{border-color:#e50914;box-shadow:0 10px 24px rgb(0 0 0 / .28)}
+.tile .tag,.feature .tag{color:#ff454d}
+.feature{background:linear-gradient(135deg,#202020,#191919);border-color:#383838;box-shadow:0 7px 24px rgb(0 0 0 / .16)}
+.contact{background:#1f1f1f;border-color:#383838}
+.contact .val{color:#f5f5f1}
+.copy{background:#35191b;border-color:#642328;color:#ff7379}
+.copy:hover{background:#4a1b1f}
+footer{border-top-color:#383838}
+dialog{background:#1f1f1f;color:#f5f5f1;border-color:#414141;box-shadow:0 24px 80px rgb(0 0 0 / .65)}
+dialog::backdrop{background:rgb(0 0 0 / .76)}
+.dlg-top{background:linear-gradient(135deg,#321416,#1f1f1f);border-bottom-color:#383838}
+.dlg-top .kick{color:#ff6269}.dlg-body{color:#d0d0d0}
+.close{background:#292929;border-color:#454545;color:#f5f5f1}
+.gate{background:linear-gradient(135deg,#141414,#211113)}
+.prof{background:#1f1f1f;border-color:#383838;color:#f5f5f1;box-shadow:0 7px 22px rgb(0 0 0 / .24)}
+.prof:hover,.prof:focus-visible{border-color:#e50914;box-shadow:0 14px 30px rgb(0 0 0 / .4)}
+.prof .av{background:#e50914;color:#fff}
+.prof[data-p="client"] .av{background:#383838;color:#fff}.prof[data-p=""] .av{background:#5a2024;color:#fff}
+.skip{border-color:#4b4b4b;color:#b3b3b3}.skip:hover{color:#fff;border-color:#e50914;background:#292929}
+::selection{background:#e50914;color:#fff}
+.pitch-sub{max-width:650px;color:#b3b3b3;font-size:.98rem;line-height:1.65;margin:12px 0 0}
+.contact-intro{color:#b3b3b3;max-width:680px;line-height:1.7;margin:-6px 0 22px}
+</style>
+
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
+  <div class="gate-in">
+    <h2 id="gateTitle">Explore my portfolio</h2>
+    <div class="profiles">
+      <button class="prof" type="button" data-p="recruiter" style="--h:38"><span class="av" aria-hidden="true">R</span><span>Recruiter</span><small>Experience & background</small></button>
+      <button class="prof" type="button" data-p="client" style="--h:190"><span class="av" aria-hidden="true">C</span><span>Client</span><small>Services & capabilities</small></button>
+    </div>
+    <button class="skip" type="button" id="skip">Continue to portfolio</button>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top">ADNAN HAMZA</a>
+    <nav class="links" aria-label="Sections">
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#tools">Tools</a>
+      <a href="#industries">Industries</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="profile-btn" type="button" id="profileBtn" aria-label="Switch profile">
+      <span class="avatar" id="navAvatar" style="--h:38">R</span><span id="navProfile">Recruiter</span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="top">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="mono-mark" aria-hidden="true">AH</div>
+    <div class="wrap hero-in">
+      <p class="eyebrow">Portfolio · 2026</p>
+      <h1>Adnan Hamza</h1>
+      <p class="role">Computer Engineer / Customer Service Representative</p>
+      <ul class="meta">
+        <li class="chip">5+ yrs</li>
+        <li>Computer Engineering, 2024</li>
+        <li>Islamabad, Pakistan</li>
+      </ul>
+      <p class="pitch" id="pitch"></p>
+      <p class="pitch-sub" id="pitchSub"></p>
+      <div class="cta">
+        <a class="btn primary" id="primaryCta" href="#experience"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg><span id="primaryLabel">View experience</span></a>
+        <button class="btn ghost" type="button" id="infoBtn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-6h2zm0-8h-2V7h2z"/></svg>More info</button>
+      </div>
+      <dl class="credits">
+        <div><dt>Focus areas</dt><dd>Customer service, lead generation, technical support, appointment setting</dd></div>
+        <div><dt>Platforms</dt><dd>Go High Level, Podio, Follow Up Boss, RealScout, VICIdial, ENZO Dialer, CallTools</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="row" id="experience" aria-labelledby="h-exp">
+    <div class="wrap row-head"><h2 id="h-exp">Professional experience</h2><span class="hint">Select a role to view responsibilities</span></div>
+    <div class="scroller-wrap">
+      <button class="arrow l" type="button" aria-label="Scroll left" data-dir="-1">&#8249;</button>
+      <div class="scroller" id="expRow"></div>
+      <button class="arrow r" type="button" aria-label="Scroll right" data-dir="1">&#8250;</button>
+    </div>
+  </section>
+
+  <section class="row" id="skills" aria-labelledby="h-skills">
+    <div class="wrap row-head"><h2 id="h-skills">Top skills</h2></div>
+    <div class="scroller-wrap">
+      <button class="arrow l" type="button" aria-label="Scroll left" data-dir="-1">&#8249;</button>
+      <div class="scroller" id="skillRow"></div>
+      <button class="arrow r" type="button" aria-label="Scroll right" data-dir="1">&#8250;</button>
+    </div>
+  </section>
+
+  <section class="row" id="tools" aria-labelledby="h-tools">
+    <div class="wrap row-head"><h2 id="h-tools">CRM and dialer tools</h2></div>
+    <div class="scroller-wrap">
+      <button class="arrow l" type="button" aria-label="Scroll left" data-dir="-1">&#8249;</button>
+      <div class="scroller" id="toolRow"></div>
+      <button class="arrow r" type="button" aria-label="Scroll right" data-dir="1">&#8250;</button>
+    </div>
+  </section>
+
+  <section class="row" id="industries" aria-labelledby="h-ind">
+    <div class="wrap row-head"><h2 id="h-ind">Industry experience</h2></div>
+    <div class="scroller-wrap">
+      <button class="arrow l" type="button" aria-label="Scroll left" data-dir="-1">&#8249;</button>
+      <div class="scroller" id="indRow"></div>
+      <button class="arrow r" type="button" aria-label="Scroll right" data-dir="1">&#8250;</button>
+    </div>
+  </section>
+
+  <section class="wrap section-pad" id="education" aria-labelledby="h-edu">
+    <h2 id="h-edu">Education</h2>
+    <div class="feature">
+      <span class="tag">Graduated 06/2024</span>
+      <h3>Bachelor's degree, Computer Engineering</h3>
+      <p>National University of Technology, Pakistan</p>
+    </div>
+  </section>
+
+  <section class="wrap section-pad" id="contact" aria-labelledby="h-contact">
+    <h2 id="h-contact">Get in touch</h2>
+    <p class="contact-intro" id="contactIntro">Thanks for visiting my portfolio. Feel free to reach out.</p>
+    <div class="contact-grid">
+      <div class="contact"><span class="lab">Email</span><span class="val">lolproguy9@gmail.com</span><button class="copy" type="button" data-copy="lolproguy9@gmail.com">Copy</button></div>
+      <div class="contact"><span class="lab">Phone</span><span class="val">03200202045</span><button class="copy" type="button" data-copy="03200202045">Copy</button></div>
+      <div class="contact"><span class="lab">Location</span><span class="val">Islamabad, Pakistan</span></div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">Adnan Hamza, Computer Engineer and Customer Service Representative.</footer>
+
+<dialog id="dlg" aria-labelledby="dlgTitle">
+  <div class="dlg-top" id="dlgTop">
+    <button class="close" type="button" id="dlgClose" aria-label="Close">&times;</button>
+    <span class="kick" id="dlgKick"></span>
+    <h2 id="dlgTitle"></h2>
+  </div>
+  <div class="dlg-body" id="dlgBody"></div>
+</dialog>
+
+<script>
+(function () {
+  var jobs = [
+    { co: 'Datafied', ini: 'DF', h: 205, role: 'Customer Support', dates: '05/2025 – 08/2026', mo: 15, loc: 'Dallas', pts: [
+      'Sent and received medical records by email, fax and mail.',
+      'Coordinated with healthcare providers and clients to request and obtain required documents.',
+      'Followed up regularly so records arrived on time.',
+      'Kept accurate records and handled confidential patient information with care.',
+      'Helped manage document flow and improve processing efficiency.' ] },
+    { co: 'blackbelthelp', ini: 'BB', h: 270, role: 'Education Support Advocate', dates: '12/2024 – 04/2025', mo: 4, loc: 'Dalles', pts: [
+      'Gave 24/7 higher education support to students, faculty and staff.',
+      'Answered admissions, financial aid, enrollment and registration questions.',
+      'Provided technical support: password resets, portal and LMS troubleshooting, system navigation.',
+      'Handled phone, chat and email inquiries.',
+      'Used a knowledge base and AI-driven tools to respond faster.',
+      'Documented cases accurately and escalated unresolved ones to the right department.' ] },
+    { co: 'EQ Funds', ini: 'EQ', h: 160, role: 'Operations Associate', dates: '02/2024 – 12/2024', mo: 10, loc: 'New York', pts: [
+      'Collected and processed shareholder voting instructions from institutional clients during corporate governance and structural changes.',
+      'Contacted major companies and stakeholders to gather proxy voting decisions and submit them accurately.',
+      'Kept records of voting activity with accurate documentation and data.',
+      'Followed up with clients to confirm responses and meet voting deadlines.',
+      'Supported proxy-related workflows, timely reporting and compliance.' ] },
+    { co: 'KOnrad', ini: 'KO', h: 28, role: 'Cold Caller', dates: '07/2023 – 01/2024', mo: 6, loc: 'Montreal', pts: [
+      'Ran SMS, email and call campaigns for electricians in Go High Level CRM.',
+      'Generated quality leads and scheduled appointments to support client sales.',
+      'Maintained and updated client databases across several CRM platforms.',
+      'Adapted outreach to each client’s industry needs.' ] },
+    { co: 'INS Real-estate', ini: 'IN', h: 320, role: 'Cold Caller / Sales Representative', dates: '06/2022 – 03/2023', mo: 9, loc: 'Orange Beach', pts: [
+      'Made outbound cold calls to U.S. clients to generate property leads and sales opportunities.',
+      'Ran high-volume calling campaigns on ENZO Dialer, VICIdial and CallTools.',
+      'Engaged prospects, qualified leads and scheduled appointments for real estate agents.',
+      'Kept CRM records current, updated lead status and tracked follow-ups to conversion.',
+      'Developed ways to handle objections and improve closing rates.',
+      'Worked in a target-driven setting focused on lead generation and client acquisition.' ] },
+    { co: 'Work Zone', ini: 'WZ', h: 45, role: 'Customer Service Representative', dates: '06/2021 – 07/2022', mo: 13, loc: 'Islamabad', pts: [
+      'Organized and led meetings on problem-solving strategies for common customer experience issues, improving communication between departments.',
+      'Streamlined call center processes to improve efficiency and cut wait times.',
+      'Ran quality assurance checks on customer interactions against service excellence standards.',
+      'Specialized in doctor appointment setting.' ] }
+  ];
+
+  var skills = [
+    ['Customer Service', 'Phone, chat and email support across five-plus years.'],
+    ['Technical Support', 'Password resets, portal and LMS troubleshooting.'],
+    ['Lead Generation', 'Outbound calls, SMS and email campaigns.'],
+    ['Database Management', 'Client records kept current across several CRMs.'],
+    ['Communication', 'Clients, stakeholders and healthcare providers.'],
+    ['Appointment Setting', 'Real estate agents and doctor appointments.'],
+    ['Sales Support', 'Lead qualification, follow-ups and objection handling.']
+  ];
+  var tools = [
+    ['Go High Level', 'CRM'], ['Podio', 'CRM'], ['Follow Up Boss', 'CRM'], ['RealScout', 'CRM'],
+    ['VICIdial', 'Dialer'], ['ENZO Dialer', 'Dialer'], ['CallTools', 'Dialer']
+  ];
+  var industries = [
+    ['Healthcare', 'Medical records handling at Datafied.'],
+    ['Higher education', 'Admissions, financial aid and LMS support at blackbelthelp.'],
+    ['Finance', 'Proxy voting operations at EQ Funds.'],
+    ['Real estate', 'Outbound lead generation at INS Real-estate.'],
+    ['Trades and B2B', 'Campaigns for electricians at KOnrad.'],
+    ['Call centers', 'Process, QA checks and team meetings at Work Zone.']
+  ];
+
+  var profiles = {
+    recruiter: {
+      label: 'Recruiter', h: 38, letter: 'R', cta: 'View experience', href: '#experience',
+      pitch: 'Computer Engineering graduate with 5+ years of experience across customer support, healthcare records, finance operations, education support and lead generation.',
+      sub: 'Explore roles, responsibilities, core skills and education. My experience highlights accurate documentation, consistent follow-up, clear communication and customer-focused problem solving.',
+      expTitle: 'Professional experience', expHint: 'Select a role to view responsibilities',
+      skillsTitle: 'Core skills', toolsTitle: 'Tools & platforms', industriesTitle: 'Industry experience',
+      contact: 'Interested in my background? Contact me to discuss relevant experience, role fit or interview availability.'
+    },
+    client: {
+      label: 'Client', h: 190, letter: 'C', cta: 'Explore services & tools', href: '#tools',
+      pitch: 'I help teams manage outreach, qualify leads, schedule appointments and keep customer or prospect records organized.',
+      sub: 'My background includes outbound calling, SMS and email campaigns, CRM updates, healthcare document follow-up and customer support. Explore the tools I have used and the industries I have supported.',
+      expTitle: 'Relevant project experience', expHint: 'Select a role to see the work I handled',
+      skillsTitle: 'Services & capabilities', toolsTitle: 'CRM & dialer toolkit', industriesTitle: 'Industries I have supported',
+      contact: 'Have a campaign, lead-generation, appointment-setting or customer-support need? Get in touch to discuss the scope and expectations.'
+    }
+  };
+
+  var $ = function (id) { return document.getElementById(id); };
+  var maxMo = Math.max.apply(null, jobs.map(function (j) { return j.mo; }));
+
+  $('expRow').innerHTML = jobs.map(function (j, i) {
+    return '<button class="card" type="button" data-i="' + i + '" style="--h:' + j.h + '">' +
+      '<span class="thumb"><span class="ini" aria-hidden="true">' + j.ini + '</span><span class="co">' + j.co + '</span>' +
+      '<span class="bar"><i style="width:' + Math.round(j.mo / maxMo * 100) + '%"></i></span></span>' +
+      '<span class="cap"><strong>' + j.role + '</strong><span class="dates">' + j.dates + ' · ' + j.mo + ' mo</span></span></button>';
+  }).join('');
+
+  $('skillRow').innerHTML = skills.map(function (s) {
+    return '<div class="tile"><span class="tag">Skill</span><h3>' + s[0] + '</h3><p>' + s[1] + '</p></div>';
+  }).join('');
+  $('toolRow').innerHTML = tools.map(function (t) {
+    return '<div class="tile sm"><span class="tag">' + t[1] + '</span><h3>' + t[0] + '</h3></div>';
+  }).join('');
+  $('indRow').innerHTML = industries.map(function (s) {
+    return '<div class="tile"><span class="tag">Genre</span><h3>' + s[0] + '</h3><p>' + s[1] + '</p></div>';
+  }).join('');
+
+  // Dialog
+  var dlg = $('dlg');
+  function openDlg(o) {
+    $('dlgTop').style.setProperty('--h', o.h);
+    $('dlgKick').textContent = o.kick;
+    $('dlgTitle').textContent = o.title;
+    $('dlgBody').innerHTML = o.html;
+    if (dlg.showModal) { try { dlg.showModal(); } catch (e) { dlg.setAttribute('open', ''); } } else { dlg.setAttribute('open', ''); }
+  }
+  function closeDlg() { if (dlg.close) { dlg.close(); } else { dlg.removeAttribute('open'); } }
+  $('dlgClose').addEventListener('click', closeDlg);
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) { closeDlg(); } });
+
+  $('expRow').addEventListener('click', function (e) {
+    var b = e.target.closest('.card'); if (!b) { return; }
+    var j = jobs[+b.dataset.i];
+    openDlg({ h: j.h, kick: j.co + ' · ' + j.loc, title: j.role,
+      html: '<span class="dates">' + j.dates + ' · about ' + j.mo + ' months</span><ul>' + j.pts.map(function (p) { return '<li>' + p + '</li>'; }).join('') + '</ul>' });
+  });
+
+  $('infoBtn').addEventListener('click', function () {
+    openDlg({ h: 38, kick: 'Computer Engineer / Customer Service Representative', title: 'Adnan Hamza',
+      html: '<p>Results-driven Computer Engineering graduate with 5+ years of experience in customer service, lead generation, appointment setting and sales support. Skilled in CRM tools like Go High Level, Podio, Follow Up Boss, RealScout, VICIdial, ENZO Dialer and CallTools.</p>' +
+        '<p>Experienced in inbound and outbound communication, managing client relationships, and working in real estate and B2B campaigns. Strong communication, problem-solving and teamwork skills, with exposure to development team coordination and project support.</p>' });
+  });
+
+  // Row arrows
+  document.querySelectorAll('.arrow').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var sc = a.parentElement.querySelector('.scroller');
+      sc.scrollBy({ left: +a.dataset.dir * sc.clientWidth * 0.8, behavior: 'smooth' });
+    });
+  });
+
+  // Smooth in-page links
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href^="#"]'); if (!a) { return; }
+    var t = document.getElementById(a.getAttribute('href').slice(1));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+
+  // Copy buttons
+  document.querySelectorAll('.copy').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var val = b.previousElementSibling;
+      function pick() {
+        var r = document.createRange(); r.selectNodeContents(val);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        b.textContent = 'Selected';
+      }
+      function done() { b.textContent = 'Copied'; }
+      try {
+        navigator.clipboard.writeText(b.dataset.copy).then(done, pick);
+      } catch (e) { pick(); }
+      setTimeout(function () { b.textContent = 'Copy'; }, 1800);
+    });
+  });
+
+  // Profiles
+  var gate = $('gate');
+  function applyProfile(k) {
+    var p = profiles[k] || profiles.recruiter;
+    $('pitch').textContent = p.pitch;
+    $('pitchSub').textContent = p.sub;
+    $('primaryLabel').textContent = p.cta;
+    $('primaryCta').setAttribute('href', p.href);
+    $('h-exp').textContent = p.expTitle;
+    document.querySelector('#experience .hint').textContent = p.expHint;
+    $('h-skills').textContent = p.skillsTitle;
+    $('h-tools').textContent = p.toolsTitle;
+    $('h-ind').textContent = p.industriesTitle;
+    $('contactIntro').textContent = p.contact;
+    $('navProfile').textContent = p.label;
+    $('navAvatar').textContent = p.letter;
+    $('navAvatar').style.setProperty('--h', p.h);
+  }
+  function choose(k) {
+    applyProfile(k);
+    gate.hidden = true;
+    try { sessionStorage.setItem('profile', k); } catch (e) {}
+    window.scrollTo(0, 0);
+  }
+  document.querySelectorAll('.prof').forEach(function (b) {
+    b.addEventListener('click', function () { choose(b.dataset.p); });
+  });
+  $('skip').addEventListener('click', function () { choose('recruiter'); });
+  $('profileBtn').addEventListener('click', function () {
+    gate.hidden = false;
+    var first = gate.querySelector('.prof'); if (first) { first.focus(); }
+  });
+
+  var saved = null;
+  try { saved = sessionStorage.getItem('profile'); } catch (e) {}
+  applyProfile(saved && profiles[saved] ? saved : 'recruiter');
+  if (saved && profiles[saved]) { gate.hidden = true; } else { var f = gate.querySelector('.prof'); if (f) { f.focus(); } }
+})();
+</script>
+
+</body></html>

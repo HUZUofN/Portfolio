@@ -1,0 +1,23 @@
+{
+  "name": "adnan-hamza-opportunity-funnel",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Dual-audience client and recruiter funnel for adnanhamza.online",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "start": "node server/index.mjs",
+    "dev": "node --watch server/index.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "node --check server/index.mjs && node --check api/handler.mjs && node --check site/assets/main.js && node --check scripts/build-pages.mjs && node --check scripts/copy-public.mjs",
+    "build": "node scripts/build-pages.mjs",
+    "followups": "node scripts/followup-runner.mjs",
+    "backup": "node scripts/backup-db.mjs",
+    "build:vercel": "node scripts/build-pages.mjs && node scripts/copy-public.mjs"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.2.0"
+  }
+}

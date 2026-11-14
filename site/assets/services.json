@@ -1,0 +1,179 @@
+[
+  {
+    "slug": "lead-generation",
+    "name": "Lead generation & prospecting",
+    "category": "Growth operations",
+    "number": "01",
+    "summary": "Make your next sales conversation easier to find.",
+    "description": "Researching prospects, outbound calling, lead qualification and accurate handoff notes for your sales team.",
+    "problems": [
+      "Unqualified leads consuming your team’s time",
+      "Prospects that never make it into your CRM",
+      "Inconsistent outreach and follow-up"
+    ],
+    "capabilities": [
+      "Outbound cold calling",
+      "Lead qualification",
+      "Real estate and service-business outreach",
+      "CRM updates and follow-up coordination"
+    ],
+    "tools": [
+      "GoHighLevel",
+      "Follow Up Boss",
+      "Podio",
+      "VICIdial",
+      "CallTools"
+    ],
+    "keyword": "outsourced lead generation and cold calling support",
+    "faq": [
+      "What qualifies as a useful real estate lead?",
+      "A prospect with genuine, confirmed interest or an active need — for example an inquiry, a homeowner open to a conversation, or a defined timeline — delivered with accurate CRM notes so your sales team can follow up. Qualification criteria are agreed with you up front, before outreach starts."
+    ]
+  },
+  {
+    "slug": "appointment-setting",
+    "name": "Appointment setting",
+    "category": "Sales operations",
+    "number": "02",
+    "summary": "Turn interest into conversations that actually happen.",
+    "description": "Prospect engagement, calendar-ready qualification, objection handling and appointment coordination.",
+    "problems": [
+      "Slow responses to interested prospects",
+      "Unstructured booking handoffs",
+      "Missed follow-ups"
+    ],
+    "capabilities": [
+      "Outbound appointment setting",
+      "Lead qualification",
+      "Follow-up coordination",
+      "Pipeline updates"
+    ],
+    "tools": [
+      "GoHighLevel",
+      "ENZO Dialer",
+      "CallTools"
+    ],
+    "keyword": "remote appointment setter for small business",
+    "faq": [
+      "How does outsourced appointment setting work?",
+      "Adnan engages prospects on your behalf — by phone, SMS and email — using CRMs such as GoHighLevel and dialers such as ENZO Dialer and CallTools. Prospects are qualified against criteria you set, and delivery is calendar-ready appointments with accurate notes. Handoff rules are agreed per campaign."
+    ]
+  },
+  {
+    "slug": "customer-support",
+    "name": "Customer support & experience",
+    "category": "Customer operations",
+    "number": "03",
+    "summary": "Be the reason customers feel heard and helped.",
+    "description": "Professional phone, email and chat support, issue documentation, escalations and dependable customer communication.",
+    "problems": [
+      "Overflowing support queues",
+      "Inconsistent customer responses",
+      "Cases lost between teams"
+    ],
+    "capabilities": [
+      "Phone, email and chat support",
+      "Case documentation",
+      "Escalations and follow-up",
+      "Support quality coordination"
+    ],
+    "tools": [
+      "Knowledge bases",
+      "CRM systems",
+      "Ticketing workflows"
+    ],
+    "keyword": "remote customer service specialist for business",
+    "faq": [
+      "Which support channels can Adnan manage?",
+      "Phone, chat and email — including 24/7 student support for an education services provider and healthcare records coordination for a Dallas-based team. Case documentation, escalations and quality checks are standard parts of that work."
+    ]
+  },
+  {
+    "slug": "crm-operations",
+    "name": "CRM & pipeline operations",
+    "category": "Revenue operations",
+    "number": "04",
+    "summary": "A cleaner pipeline makes better decisions possible.",
+    "description": "Organizing customer records, lead stages, campaign follow-ups and operational workflows across familiar CRM platforms.",
+    "problems": [
+      "Duplicate or stale lead records",
+      "Missed callbacks",
+      "Inconsistent pipeline visibility"
+    ],
+    "capabilities": [
+      "CRM data maintenance",
+      "Lead stage tracking",
+      "Follow-up operations",
+      "Campaign coordination"
+    ],
+    "tools": [
+      "GoHighLevel",
+      "Podio",
+      "Follow Up Boss",
+      "RealScout"
+    ],
+    "keyword": "GoHighLevel CRM support specialist",
+    "faq": [
+      "Which CRM tools does Adnan have professional experience with?",
+      "GoHighLevel, Podio, Follow Up Boss and RealScout, plus the VICIdial, ENZO Dialer and CallTools dialers — applied in appointment setting, real estate outreach, healthcare records coordination and campaign follow-up."
+    ]
+  },
+  {
+    "slug": "technical-support",
+    "name": "Technical & user support",
+    "category": "Technical operations",
+    "number": "05",
+    "summary": "Calm, capable support when systems get complicated.",
+    "description": "Frontline troubleshooting for user accounts, online portals, access issues and end-user workflows, with escalation when needed.",
+    "problems": [
+      "Recurring login and access issues",
+      "Confusing portal processes",
+      "Unclear technical escalations"
+    ],
+    "capabilities": [
+      "Account access troubleshooting",
+      "LMS and portal navigation",
+      "Multi-channel user assistance",
+      "Documentation and escalation"
+    ],
+    "tools": [
+      "LMS platforms",
+      "Knowledge bases",
+      "Support systems"
+    ],
+    "keyword": "remote technical support representative",
+    "faq": [
+      "What technical issues can Adnan troubleshoot?",
+      "Frontline user-facing issues: account access and login problems, password resets, LMS and portal navigation, and knowledge-base-driven resolution — with unresolved cases escalated to the right department, as handled in a higher-education support role."
+    ]
+  },
+  {
+    "slug": "operations-support",
+    "name": "Project & operations coordination",
+    "category": "Business operations",
+    "number": "06",
+    "summary": "Keep moving pieces moving in the same direction.",
+    "description": "Support with recruiting, interviewing, onboarding, task delegation, campaign operations and day-to-day team coordination.",
+    "problems": [
+      "Tasks falling between owners",
+      "Disorganized onboarding",
+      "Limited campaign visibility"
+    ],
+    "capabilities": [
+      "Candidate interviews",
+      "Recruitment coordination",
+      "Task delegation",
+      "Team and campaign support"
+    ],
+    "tools": [
+      "Project trackers",
+      "CRM tools",
+      "Collaboration workflows"
+    ],
+    "keyword": "remote project operations coordinator",
+    "faq": [
+      "Which recruitment and operations tasks can he coordinate?",
+      "Candidate interviews, team onboarding, task delegation, campaign operations and day-to-day coordination — drawn from his current role as Project Manager at Maverick ConnectX (since March 2026) and prior proxy and customer operations work."
+    ]
+  }
+]

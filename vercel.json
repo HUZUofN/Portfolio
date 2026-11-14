@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "framework": null,
+  "buildCommand": "npm run build:vercel",
+  "outputDirectory": "public",
+  "rewrites": [
+    {
+      "source": "/api/:route*",
+      "destination": "/api/handler?route=:route*"
+    }
+  ]
+}

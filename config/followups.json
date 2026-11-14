@@ -1,0 +1,43 @@
+{
+  "comment": "Follow-up automation configuration. The runner (scripts/followup-runner.mjs) is designed for cron/Task Scheduler. Dry-run by default: it prints and logs what WOULD be sent. Pass --send to actually deliver via Resend / WhatsApp Cloud API. Only leads with contact_consent=1 are emailed; WhatsApp messages additionally require whatsapp_consent=1. Every send (or dry-run) is logged in the notifications table for traceability. Adjust hoursBefore/hoursAfter and enable flags to taste. Never enable a workflow whose consent requirements are not met.",
+  "email": {
+    "enabled": true,
+    "from": "RESEND_FROM_EMAIL env var"
+  },
+  "whatsapp": {
+    "enabled": false,
+    "note": "Enable only after Meta WhatsApp Cloud API is live and an approved opt-in template exists. Reminders use the same approved template constraints as the booking confirmation."
+  },
+  "workflows": [
+    {
+      "id": "reminder_24h",
+      "enabled": true,
+      "kind": "reminder_24h",
+      "channel": "email",
+      "hoursBefore": 24,
+      "toleranceMinutes": 45,
+      "subject": "Reminder: your call with Adnan Hamza is tomorrow",
+      "template": "Hi {{name}},\n\nThis is a friendly reminder that we have a discovery call scheduled for {{datetime}} UTC.\n\nWhat to prepare: a sentence or two about your goals, the channel(s) you are struggling with most, and what 'working well' looks like for you.\n\nNeed to reschedule? Simply reply to this email or use the rescheduling link in your calendar confirmation.\n\nAdnan Hamza\nhttps://www.adnanhamza.online"
+    },
+    {
+      "id": "reminder_1h",
+      "enabled": true,
+      "kind": "reminder_1h",
+      "channel": "email",
+      "hoursBefore": 1,
+      "toleranceMinutes": 30,
+      "subject": "Your call with Adnan Hamza starts soon",
+      "template": "Hi {{name}},\n\nOur call is coming up at {{datetime}} UTC. You can join (or reschedule) using the link in your calendar confirmation.\n\nAdnan Hamza\nhttps://www.adnanhamza.online"
+    },
+    {
+      "id": "post_meeting",
+      "enabled": true,
+      "kind": "post_meeting_followup",
+      "channel": "email",
+      "hoursAfter": 24,
+      "toleranceMinutes": 120,
+      "subject": "Thank you for the conversation",
+      "template": "Hi {{name}},\n\nThank you for the conversation. As discussed, I'll summarize what could be useful and the sensible next step — or let you know honestly if I don't think I'm the right fit.\n\nIf anything else comes up in the meantime, just reply to this email.\n\nAdnan Hamza\nhttps://www.adnanhamza.online"
+    }
+  ]
+}

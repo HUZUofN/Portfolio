@@ -1,0 +1,47 @@
+ADNAN HAMZA WEBSITE — FINAL NAVY + TEAL PROJECT
+2026-11-14
+
+THIS IS THE COMPLETE NODE.JS SOURCE PROJECT, NOT JUST A SINGLE HTML PAGE.
+Includes: homepage, 6 service pages, recruiter section, downloadable CV,
+client/recruiter forms, Node server, SQLite lead storage, admin dashboard,
+Cal.com booking link defaults, Resend email integration code, and documentation.
+
+IMPORTANT: Back up your existing project and hosting files before replacing them.
+Do not delete your existing .env (private credentials) or data/leads.db (lead records).
+This ZIP deliberately DOES NOT INCLUDE .env OR ANY DATABASE/SECRETS.
+
+FOR WINDOWS LOCAL PROJECT FOLDER
+1. Back up E:\Default Project\adnan-funnel (or wherever your existing project lives).
+2. Extract the full ZIP into E:\Default Project\. It contains an adnan-funnel folder.
+   If overwriting existing files, keep a backup of .env and data\leads.db first.
+3. In PowerShell: cd "E:\Default Project\adnan-funnel"
+4. If you do not have a .env, copy .env.example to .env, then edit the .env privately.
+5. REQUIRED before exposing the site publicly:
+   - Set strong, unique ADMIN_PASSWORD (16+ characters).
+   - Set RESEND_API_KEY to your NEW private key, not the revoked key.
+   - Set CAL_WEBHOOK_SECRET and configure a matching Cal.com webhook when public.
+   - Confirm CONTACT_EMAIL=nothinggamer03@gmail.com.
+   - Check CAL_CLIENT_URL and CAL_RECRUITER_URL are your actual Cal.com links.
+6. Run: npm run check
+7. Run: npm test
+8. Run: npm start
+9. Open http://localhost:3000 and http://localhost:3000/admin/
+   If port 3000 is in use, identify the existing Node process before restarting.
+
+IMPORTANT DEPLOYMENT NOTE
+A pure static/Vercel static upload of site/ does NOT run the Node.js API, SQLite
+lead database, admin login, webhook endpoint, or Resend notifications. For these
+features, deploy the entire project to Node-compatible hosting with persistent
+storage and HTTPS. DO NOT upload .env into a public/static web directory.
+
+CURRENT INTEGRATION STATUS
+- Visual site: Midnight Navy + Electric Teal; text contrast adjusted.
+- Client/recruiter forms and database: implemented; automated tests pass locally.
+- Cal.com: booking URLs configured in template; live webhooks not connected/tested.
+- Resend: domain verified by owner; private API key must be configured on host;
+  a real end-to-end send/delivery test has NOT been completed.
+- WhatsApp: NOT enabled; no active opt-in; deferred by owner.
+- Media: headshot/introduction video still placeholders.
+- Public site: NOT automatically updated by this ZIP.
+
+See README.md and docs/DEPLOYMENT.md for deployment and backup procedures.

@@ -428,3 +428,14 @@ em{font-style:italic}
 .field input,.field textarea,.field select,.admin-login input,.admin-table select{color:var(--ink)}
 .btn-brass,.play-button,.btn-green{color:#07121F}
 .btn-brass:hover,.play-button:hover,.btn-green:hover{color:#07121F}
+
+/* ADNAN BRANDING PATCH */
+.resume-personal-name{display:flex;align-items:center;justify-content:space-between;gap:14px;font-family:var(--display);font-size:clamp(25px,3vw,44px);line-height:1.12}
+.resume-personal-name em{color:var(--brass-text);font-style:normal}
+.resume-personal-name small{display:block;color:var(--brass-soft);font:600 10px var(--body);letter-spacing:.2em;margin-top:10px}
+.brand-full-name{font-size:15px;letter-spacing:.12em}
+.brand-full-name em,.video-identity span{color:var(--brass-text);font-style:normal}
+.video-identity{font-family:var(--display);font-size:clamp(27px,3.5vw,44px);font-weight:600}
+.nudge{z-index:65;max-width:min(96vw,600px)}
+.nudge.show{display:flex;visibility:visible;opacity:1;pointer-events:auto}
+@media(max-width:640px){.nudge.show{left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));width:auto;max-width:none;gap:8px;flex-wrap:wrap}.resume-personal-name{font-size:27px}}

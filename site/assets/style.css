@@ -453,3 +453,13 @@ em{font-style:italic}
 .seo-context p{color:var(--ink-soft);max-width:850px;margin:8px 0;font-size:14px;line-height:1.8}
 .seo-context a{color:var(--brass-text);text-decoration:underline;text-underline-offset:4px}
 .seo-context a:hover{color:var(--brass-soft)}
+
+/* Experience-based service workflow: clear, accessible and visually consistent */
+.seo-workflow{max-width:1100px;padding-block:54px 58px;border-top:1px solid var(--line)}
+.seo-workflow h2{font-family:var(--display);font-size:clamp(27px,3vw,39px);font-weight:560;line-height:1.19;letter-spacing:-.024em;max-width:730px;margin:0 0 18px}
+.seo-workflow>p{font-size:15px;line-height:1.85;color:var(--ink-soft);max-width:800px;margin:0 0 20px}
+.seo-workflow ol{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;list-style:none;counter-reset:workflow;margin:30px 0;padding:0}
+.seo-workflow li{counter-increment:workflow;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-sm);padding:24px;font-size:14px;line-height:1.8;color:var(--ink-soft)}
+.seo-workflow li::before{content:"0" counter(workflow);display:block;color:var(--brass-text);font-size:12px;letter-spacing:.17em;font-weight:700;margin-bottom:13px}
+.seo-workflow a{color:var(--brass-text);text-decoration:underline;text-underline-offset:4px}
+@media(max-width:760px){.seo-workflow{padding-block:40px}.seo-workflow ol{grid-template-columns:1fr;gap:12px}.seo-workflow li{padding:20px}}

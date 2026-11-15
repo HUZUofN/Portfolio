@@ -446,3 +446,10 @@ em{font-style:italic}
 .copy-email-icon:hover,.copy-email-icon:focus-visible{background:rgba(56,217,192,.2);border-color:var(--brass);transform:translateY(-1px)}
 .copy-email-icon.copied{border-color:var(--success);color:var(--success)}
 .recruiter-copy-icon{width:48px;height:48px;border-radius:50%}
+
+/* Search-intent service context, with visible useful links for visitors and crawlers */
+.seo-context{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding-block:28px;margin-block:24px 42px}
+.seo-context h2{font:600 clamp(19px,2vw,27px)/1.35 var(--display);margin:0 0 10px;color:var(--ink)}
+.seo-context p{color:var(--ink-soft);max-width:850px;margin:8px 0;font-size:14px;line-height:1.8}
+.seo-context a{color:var(--brass-text);text-decoration:underline;text-underline-offset:4px}
+.seo-context a:hover{color:var(--brass-soft)}

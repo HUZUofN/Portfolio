@@ -453,3 +453,100 @@ em{font-style:italic}
 .seo-context p{color:var(--ink-soft);max-width:850px;margin:8px 0;font-size:14px;line-height:1.8}
 .seo-context a{color:var(--brass-text);text-decoration:underline;text-underline-offset:4px}
 .seo-context a:hover{color:var(--brass-soft)}
+
+/* ===== Spacious editorial design preview (branch-only) ===== */
+:root{
+ --display:'Manrope',system-ui,-apple-system,sans-serif;
+ --body:'Inter',system-ui,-apple-system,sans-serif;
+ --page-bg:#091422;
+ --paper:#12243A;
+ --card:#152A40;
+ --ink:#F8FBFF;
+ --ink-soft:#D2DFE9;
+ --muted:#9EB1C6;
+ --radius:22px;
+}
+body{font-size:16px;line-height:1.8;letter-spacing:.002em}
+.container{width:min(1160px,calc(100% - 64px))}
+.site-header .nav-wrap{min-height:84px}
+.site-header nav{gap:36px}
+.site-header nav a{font-weight:500}
+.wordmark-name{font-weight:800}
+h1,h2,h3,.hero h1,.section-intro h2,.cta-band h2,.approach-section h2,.personal-band h2,.service-hero h1,.resume-summary h2{
+font-family:var(--display);font-style:normal;letter-spacing:-.047em}
+h1 em,h2 em,.hero h1 .accent{font-style:normal}
+.hero{grid-template-columns:1.04fr .96fr;align-items:center;gap:90px;padding:124px 0 116px}
+.hero h1{font-size:clamp(48px,5.6vw,80px);font-weight:800;line-height:1.13;letter-spacing:-.06em;max-width:670px;margin-bottom:32px}
+.hero-description{font-size:17px;line-height:1.9;max-width:470px;margin-bottom:38px}
+.eyebrow{font-size:11px;letter-spacing:.22em;margin-bottom:25px}
+.hero-actions{gap:18px;margin-bottom:20px}
+.hero-microcopy{font-size:12px;display:block;line-height:1.7;margin:0 0 38px}
+.hero-proof{padding-top:32px;gap:34px}
+.proof-item{gap:5px}
+.proof-item strong{font-size:19px;font-weight:750}
+.proof-item span{max-width:140px;line-height:1.5}
+.video-card{border-radius:30px}
+.video-stage{padding:64px 38px;gap:22px}
+.video-stage h2{font-size:25px;font-weight:750}
+.video-stage p{line-height:1.8;max-width:300px}
+.video-card-top,.video-card-bottom{padding:23px 29px}
+.video-transcript{padding:18px 30px}
+.video-identity{font-weight:800}
+.industry-bar{padding-block:32px;gap:42px}
+.industry-bar .items{gap:35px;row-gap:14px;font-family:var(--body);font-size:14px}
+.section{padding:124px 0}
+.section-intro{margin-bottom:65px;gap:80px;align-items:end}
+.section-intro h2{font-weight:800;line-height:1.17}
+.section-intro>p{max-width:340px;line-height:1.85}
+.services-grid{gap:24px}
+.service-card{padding:38px 32px;min-height:345px;border-radius:25px}
+.service-card h3{font-size:23px;line-height:1.35;margin-bottom:23px;font-weight:700}
+.service-card p{line-height:1.85;font-size:14px}
+.service-tools{gap:9px}
+.service-card-actions{margin-top:34px}
+.approach-section{padding:135px 0}
+.approach-grid{gap:120px}
+.approach-section h2{font-size:clamp(37px,4vw,57px);line-height:1.2;font-weight:800}
+.approach-section .lead{max-width:430px;line-height:1.9}
+.approach-step{padding-block:28px}
+.approach-step h3{font-size:18px;letter-spacing:-.02em}
+.approach-step p{line-height:1.85}
+.sector-grid{gap:22px}
+.sector{padding:35px 29px;border-radius:20px}
+.sector h3{font-size:21px;letter-spacing:-.03em}
+.sector p{font-size:14px;line-height:1.85}
+.personal-band{margin-block:70px 100px;padding:75px 68px;gap:100px;border-radius:30px}
+.personal-band h2{font-weight:800;line-height:1.2}
+.personal-band p{line-height:1.9;max-width:410px}
+.fact-list{gap:22px}
+.faq-section{padding-top:100px;padding-bottom:120px}
+.faq-list{max-width:850px}
+.faq-item{padding-block:21px}
+.cta-band{padding:140px 0}
+.cta-band h2{font-size:clamp(43px,5.5vw,70px);font-weight:800;line-height:1.2}
+.cta-band p{max-width:530px;margin-inline:auto;line-height:1.85}
+.footer{padding-top:85px}
+.footer-grid{gap:72px}
+.btn{min-height:54px;padding-inline:27px}
+.resume-personal-name{font-family:var(--display);letter-spacing:-.05em}
+@media(max-width:1000px){
+ .hero{gap:40px;padding:95px 0}
+ .approach-grid{gap:65px}
+ .personal-band{gap:45px;padding:55px 40px}
+ .section{padding:95px 0}
+}
+@media(max-width:760px){
+ .container{width:min(100% - 36px,1160px)}
+ .hero{display:flex;flex-direction:column;align-items:stretch;gap:55px;padding:75px 0 75px}
+ .hero h1{font-size:clamp(43px,10vw,60px)}
+ .hero-description{font-size:16px}
+ .hero-proof{gap:17px}
+ .hero-visual{width:100%}
+ .section{padding:82px 0}
+ .section-intro{margin-bottom:40px;gap:20px}
+ .service-card{min-height:unset;padding:30px 26px}
+ .approach-section{padding:90px 0}
+ .personal-band{margin-block:42px 70px;padding:42px 27px}
+ .cta-band{padding:95px 0}
+ .industry-bar{padding-block:24px;gap:20px}
+}

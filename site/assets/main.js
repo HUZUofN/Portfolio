@@ -153,13 +153,13 @@
   if(playBtn)playBtn.addEventListener('click',()=>{const notice=document.getElementById('video-notice');if(notice){notice.hidden=false;notice.scrollIntoView({block:'nearest'});}});
   // Play the approved original-voice portfolio video when its first-party MP4 exists.
   // Until the file is present, preserve the visible, honest pending-video notice.
-  fetch('/assets/videos/adnan-hamza-introduction.mp4',{method:'HEAD'}).then(response=>{
+  fetch('/assets/videos/adnan-hamza-introduction.mp4.mp4',{method:'HEAD'}).then(response=>{
     if(!response.ok || !(response.headers.get('content-type')||'').includes('video/'))return;
     const stage=document.querySelector('#intro-video .video-stage');
     if(!stage)return;
     const player=document.createElement('video');
     player.controls=true;player.preload='metadata';player.playsInline=true;
-    player.className='video-embed';player.src='/assets/videos/adnan-hamza-introduction.mp4';
+    player.className='video-embed';player.src='/assets/videos/adnan-hamza-introduction.mp4.mp4';
     player.setAttribute('aria-label','Full HD professional introduction narrated by Adnan Hamza');
     player.addEventListener('play',()=>track('video_play'));
     stage.replaceChildren(player);

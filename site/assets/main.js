@@ -200,8 +200,19 @@
 
   // Email fallback: direct copy for visitors without a configured mail app.
   document.querySelectorAll('[data-copy-email]').forEach(button=>button.addEventListener('click',async()=>{
-    try{await navigator.clipboard.writeText('nothinggamer03@gmail.com');button.textContent='Copied email!';}
-    catch(_){button.textContent='nothinggamer03@gmail.com';}
+    const email='nothinggamer03@gmail.com';
+    try{
+      if(navigator.clipboard?.writeText) await navigator.clipboard.writeText(email);
+      else {
+        const input=document.createElement('textarea');input.value=email;input.style.position='fixed';input.style.opacity='0';
+        document.body.append(input);input.select();
+        if(!document.execCommand('copy'))throw new Error('Clipboard unavailable');
+        input.remove();
+      }
+      button.setAttribute('aria-label','Email copied');button.title='Copied!';
+      button.classList.add('copied');
+      window.setTimeout(()=>{button.setAttribute('aria-label','Copy email address');button.title='Copy email address';button.classList.remove('copied');},2000);
+    }catch(_){button.title='Copy unavailable: '+email;button.setAttribute('aria-label','Copy unavailable; email is '+email);}
   }));
 
   // Secure administration — authentication cookie is httpOnly; do not persist credentials.

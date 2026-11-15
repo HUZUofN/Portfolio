@@ -169,18 +169,26 @@
     }).catch(()=>{});
   });
   document.querySelectorAll('[data-service-video-play]').forEach(btn=>btn.addEventListener('click',()=>{const note=document.getElementById('sv-note-'+btn.dataset.serviceVideoPlay);if(note)note.hidden=false;}));
-  // One-time, subtle engagement nudge: 3.5s without any interaction and not dismissed this session. Never on /admin/.
+  // Public-page call-to-action: reappears across pages, dismissible on each page.
   (function nudge(){
-    const nudgeEl=document.getElementById('engagement-nudge');if(!nudgeEl||location.pathname.startsWith('/admin/'))return;
-    try{if(sessionStorage.getItem('nudgeDone')==='1')return;}catch(e){return;}
-    let engaged=false;
-    const mark=()=>{engaged=true;window.removeEventListener('pointerdown',mark);window.removeEventListener('keydown',mark);window.removeEventListener('scroll',mark);window.removeEventListener('touchstart',mark);};
-    window.addEventListener('pointerdown',mark,{passive:true});window.addEventListener('keydown',mark);window.addEventListener('scroll',mark,{passive:true});window.addEventListener('touchstart',mark,{passive:true});
-    const done=(eventName)=>{try{sessionStorage.setItem('nudgeDone','1');}catch(e){}nudgeEl.classList.remove('show');if(eventName)track(eventName);};
-    document.getElementById('nudge-dismiss').addEventListener('click',()=>done('nudge_dismissed'));
-    document.getElementById('nudge-cta').addEventListener('click',()=>{done('nudge_clicked');showOverlay('client');});
-    window.setTimeout(()=>{if(engaged)return;if(!overlay.hidden)return;nudgeEl.classList.add('show');track('nudge_shown');},3500);
+    if(location.pathname.startsWith('/admin/'))return;
+    let nudgeEl=document.getElementById('engagement-nudge');
+    if(!nudgeEl){
+      nudgeEl=document.createElement('div');nudgeEl.id='engagement-nudge';nudgeEl.className='nudge';
+      nudgeEl.innerHTML='<span>Curious what working together looks like?</span><button type="button" class="nudge-cta" id="nudge-cta">Book a free call →</button><button type="button" id="nudge-dismiss" aria-label="Dismiss">×</button>';
+      document.body.append(nudgeEl);
+    }
+    const dismiss=()=>{nudgeEl.classList.remove('show');nudgeEl.hidden=true;track('nudge_dismissed');};
+    nudgeEl.querySelector('#nudge-dismiss')?.addEventListener('click',dismiss);
+    nudgeEl.querySelector('#nudge-cta')?.addEventListener('click',()=>{nudgeEl.classList.remove('show');nudgeEl.hidden=true;track('nudge_clicked');showOverlay('client');});
+    window.setTimeout(()=>{if(!overlay || !overlay.hidden || nudgeEl.hidden)return;nudgeEl.classList.add('show');track('nudge_shown');},1500);
   })();
+
+  // Email fallback: direct copy for visitors without a configured mail app.
+  document.querySelectorAll('[data-copy-email]').forEach(button=>button.addEventListener('click',async()=>{
+    try{await navigator.clipboard.writeText('nothinggamer03@gmail.com');button.textContent='Copied email!';}
+    catch(_){button.textContent='nothinggamer03@gmail.com';}
+  }));
 
   // Secure administration — authentication cookie is httpOnly; do not persist credentials.
   const adminApp=document.getElementById('admin-app');

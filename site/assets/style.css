@@ -25,8 +25,8 @@
   --radius-sm:12px;
   --shadow:0 28px 64px rgba(3,7,18,.34);
   --shadow-sm:0 10px 28px rgba(3,7,18,.23);
-  --body:'Inter',system-ui,-apple-system,sans-serif;
-  --display:'Fraunces',Georgia,'Times New Roman',serif;
+  --body:'DM Sans',system-ui,-apple-system,sans-serif;
+  --display:'Space Grotesk',system-ui,-apple-system,sans-serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:96px}

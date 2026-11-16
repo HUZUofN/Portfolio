@@ -463,3 +463,121 @@ em{font-style:italic}
 .seo-workflow li::before{content:"0" counter(workflow);display:block;color:var(--brass-text);font-size:12px;letter-spacing:.17em;font-weight:700;margin-bottom:13px}
 .seo-workflow a{color:var(--brass-text);text-decoration:underline;text-underline-offset:4px}
 @media(max-width:760px){.seo-workflow{padding-block:40px}.seo-workflow ol{grid-template-columns:1fr;gap:12px}.seo-workflow li{padding:20px}}
+
+/* Design preview v2: balanced spacing, fully preserved original content.
+   Fraunces + Inter remain the primary typography. */
+:root{--radius:20px;--radius-sm:13px;--line:rgba(238,242,255,.18)}
+body{line-height:1.72}
+.container{width:min(1200px,calc(100% - 56px))}
+.site-header .nav-wrap{min-height:78px}
+.eyebrow{letter-spacing:.17em;margin-bottom:20px}
+.hero{padding:92px 0 86px;gap:58px;align-items:center}
+.hero h1{font-size:clamp(47px,5.25vw,72px);line-height:1.09;letter-spacing:-.028em;margin-bottom:28px}
+.hero-description{max-width:35rem;font-size:17px;line-height:1.75;margin-bottom:30px}
+.hero-actions{gap:14px;margin-bottom:19px}
+.hero-microcopy{gap:12px;flex-wrap:wrap;line-height:1.6;margin-bottom:28px}
+.hero-proof{padding-top:27px}
+.video-card{border-radius:23px}
+.video-stage{padding:45px 32px;gap:21px}
+.video-stage p{max-width:23rem;line-height:1.7}
+.industry-bar{padding:23px 0;gap:27px}
+.industry-bar .items{row-gap:8px}
+.section{padding:102px 0}
+.section-intro{margin-bottom:44px;gap:38px}
+.section-intro h2{line-height:1.16;letter-spacing:-.025em}
+.section-intro>p{line-height:1.8;max-width:26rem}
+.services-grid{gap:21px}
+.service-card{padding:32px 29px;border-radius:20px;transition:transform .2s,border-color .2s}
+.service-card:hover{transform:translateY(-3px);border-color:rgba(56,217,192,.38)}
+.service-card h3{line-height:1.3}
+.service-card p{line-height:1.8}
+.service-card-actions{margin-top:26px}
+.approach-section{padding:104px 0}
+.approach-grid{gap:70px}
+.approach-section .lead{line-height:1.8}
+.approach-step{padding-top:23px;padding-bottom:23px}
+.approach-step p{line-height:1.75}
+.sector-grid{gap:19px}
+.sector{padding:31px 26px}
+.sector p{line-height:1.75}
+.personal-band{padding:64px 55px;gap:60px;margin-block:46px 66px}
+.personal-band p{line-height:1.8}
+.faq-section{padding-top:85px;padding-bottom:88px}
+.cta-band{padding:100px 0}
+.cta-band p{line-height:1.75;max-width:34rem}
+.footer{padding-top:66px}
+.resume-personal-name{line-height:1.22}
+@media(max-width:950px){.hero{gap:34px;padding:70px 0}.approach-grid{gap:35px}.personal-band{padding:43px 34px;gap:36px}}
+@media(max-width:760px){.container{width:min(100% - 36px,1200px)}.hero{padding:62px 0 58px;gap:35px}.hero h1{font-size:clamp(42px,10vw,57px)}.hero-description{font-size:16px}.section{padding:73px 0}.section-intro{margin-bottom:33px}.service-card{padding:28px 25px}.approach-section{padding:76px 0}.personal-band{padding:38px 25px;margin-block:36px}.cta-band{padding:79px 0}}
+
+/* ===== Typography preview V3: role-specific font system; no copy removed ===== */
+/* Display: Space Grotesk. Reading, UI, forms: DM Sans. */
+:root{
+ --display:'Space Grotesk',system-ui,-apple-system,sans-serif;
+ --body:'DM Sans',system-ui,-apple-system,sans-serif;
+}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{font-family:var(--body);font-size:16px;line-height:1.7;font-weight:400;font-optical-sizing:auto}
+p,li,summary,textarea,input,select{overflow-wrap:break-word}
+p{font-family:var(--body)}
+/* Page title and section title hierarchy */
+.hero h1,.service-hero h1,.recruiter-hero h1,
+.section-intro h2,.approach-section h2,.personal-band h2,
+.cta-band h2,.related-cta h2,.education-section h2,
+.faq-section h2,.timeline-section h2{
+ font-family:var(--display);font-weight:600;letter-spacing:-.041em;
+}
+.hero h1{font-weight:600;line-height:1.12;letter-spacing:-.048em}
+.service-hero h1,.recruiter-hero h1{line-height:1.12}
+.hero h1 .accent,h1 em,h2 em,.service-hero-lede{
+ font-style:normal;letter-spacing:-.035em;font-weight:500
+}
+/* Supporting text: consistent x-height and comfortable scanning */
+.hero-description,.service-hero-desc,.section-intro p,.approach-section .lead,
+.personal-band p,.cta-band p,.related-cta p{
+ font-family:var(--body);font-weight:400;line-height:1.75;
+}
+.hero-description,.service-hero-desc{max-width:36rem}
+.section-intro p,.service-card p,.sector p,.timeline-item p,.faq-item p{line-height:1.75}
+.seo-context h2{font-family:var(--display);font-weight:600;letter-spacing:-.025em}
+.seo-context p{font-family:var(--body)}
+/* Card title identity */
+.service-card h3,.sector h3,.approach-step h3,.timeline-item h3,
+.education-card h3,.footer h3,.video-stage h2,.service-aside strong{
+ font-family:var(--display);font-weight:600;letter-spacing:-.025em;line-height:1.32;
+}
+.service-card h3{font-size:22px}
+.sector h3{font-size:19px}
+.video-stage h2{font-size:24px}
+.footer h3{font-weight:600}
+/* Personal branding and recruiter page */
+.wordmark-name,.brand-full-name,.video-identity,.resume-personal-name{
+ font-family:var(--display);font-weight:700;letter-spacing:-.03em
+}
+.resume-personal-name{font-weight:600}
+.resume-personal-name small{font-family:var(--body);letter-spacing:.15em}
+.resume-summary-bottom h2{font-family:var(--display);font-weight:600}
+.resume-summary-bottom h2 span{font-family:var(--body);font-weight:500;font-style:normal}
+.resume-facts strong{font-family:var(--body);font-weight:600}
+.timeline-dates,.timeline-company{font-family:var(--body)}
+/* Small labels / menu / interface */
+.eyebrow,.service-num,.service-cat,.sector>span,
+.footer-col h4,.video-card-top,.video-note,
+.resume-summary-bottom>p,.resume-facts p{
+ font-family:var(--body);font-weight:700;letter-spacing:.14em
+}
+.site-header nav a,.footer-col a,.footer-bottom,.text-link{font-family:var(--body);letter-spacing:0}
+.btn,.play-button,.nudge,.nudge-cta,.choice-button,.funnel-dialog,
+.funnel-dialog input,.funnel-dialog textarea,.funnel-dialog label{
+ font-family:var(--body)
+}
+.btn,.play-button,.nudge-cta{font-weight:700;letter-spacing:0}
+.funnel-dialog h2,.funnel-dialog h3{font-family:var(--display);font-weight:600;letter-spacing:-.025em}
+.faq-item summary{font-family:var(--body);font-weight:600}
+.footer-col a,.footer-col button{font-size:14px}
+@media(max-width:760px){
+ .hero h1{line-height:1.13}
+ .hero-description,.service-hero-desc{line-height:1.7}
+ .service-card h3{font-size:21px}
+ .resume-personal-name{font-size:clamp(23px,6vw,32px)}
+}

@@ -589,3 +589,28 @@ p{font-family:var(--body)}
 .copy-email-icon,.copy-email-icon:hover{background:rgba(240,173,69,.10)}
 .btn-brass:hover{background:#FFCB75}
 ::selection{background:#F0AD45;color:#231709}
+
+
+/* 2026 Remote Business Support amber branding */
+.site-brand-logo{display:block;width:clamp(165px,21vw,278px);height:auto;max-height:68px;object-fit:contain;object-position:left center}
+.wordmark{flex:0 0 auto;min-width:0;align-items:center}
+.site-header .nav-wrap{gap:18px}
+.hero h1{font-size:clamp(43px,5vw,70px);line-height:1.09;letter-spacing:-.047em}
+.hero .accent{color:var(--brass-text);font-weight:700}
+.hero-description{max-width:580px}
+.video-card{background:#11161D;border:1px solid rgba(240,173,69,.3);box-shadow:0 24px 65px rgba(0,0,0,.3)}
+.video-stage-branded{min-height:355px;aspect-ratio:16/11;justify-content:flex-end;align-items:flex-start;text-align:left;gap:14px;padding:30px;background:#11161D url('/assets/video-cover.svg') center center / cover no-repeat;isolation:isolate}
+.video-stage-branded::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(13,18,25,.94),rgba(13,18,25,.35) 38%,transparent 75%);z-index:-1;pointer-events:none}
+.video-cover-copy{display:flex;flex-direction:column;align-items:flex-start;gap:9px;max-width:420px}
+.video-cover-label{font-family:var(--body);font-weight:700;font-size:10px;letter-spacing:.18em;color:#FFD083}
+.video-cover-copy h2{font-family:var(--display);font-size:clamp(25px,2.6vw,36px);font-weight:700;line-height:1.14;letter-spacing:-.03em;text-shadow:0 3px 18px rgba(0,0,0,.8)}
+.video-cover-copy h2 em{font-style:normal;color:#F0AD45}
+.video-cover-copy p{font-size:12px;max-width:365px;color:#F6F3EC;text-shadow:0 2px 10px rgba(0,0,0,.75)}
+.video-stage-branded .play-button{padding:9px 16px 9px 9px;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.video-stage-branded .video-note{font-size:10px;color:#F6F3EC;text-shadow:0 2px 12px #11161D}
+.video-stage:has(> video){aspect-ratio:16/9;min-height:0;padding:0;background:#11161D}
+.video-stage:has(> video)::before{display:none}
+.video-stage>video.video-embed{width:100%;height:100%;aspect-ratio:16/9;object-fit:contain;background:#11161D;margin:0;display:block}
+@media(max-width:1050px){.site-brand-logo{width:208px}.site-header nav{gap:18px}}
+@media(max-width:760px){.site-brand-logo{width:200px}.video-stage-branded{min-height:310px;padding:22px}.video-cover-copy h2{font-size:28px}.hero h1{font-size:clamp(39px,9.5vw,58px)}}
+@media(max-width:420px){.site-brand-logo{width:170px}.video-stage-branded{min-height:285px;padding:17px}.video-cover-copy{gap:6px}.video-cover-copy h2{font-size:25px}.video-stage-branded .play-button{font-size:12px}}

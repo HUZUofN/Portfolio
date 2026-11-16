@@ -159,14 +159,14 @@
     if(!stage)return;
     const player=document.createElement('video');
     player.controls=true;player.preload='metadata';player.playsInline=true;
-    player.className='video-embed';player.src='/assets/videos/adnan-hamza-introduction.mp4.mp4';
+    player.className='video-embed';player.src='/assets/videos/adnan-hamza-introduction.mp4.mp4';player.poster='/assets/video-cover.svg';
     player.setAttribute('aria-label','Full HD professional introduction narrated by Adnan Hamza');
     player.addEventListener('play',()=>track('video_play'));
     stage.replaceChildren(player);
     document.querySelector('#video-notice')?.remove();
   }).catch(()=>{});
   fetch('/api/config').then(r=>r.ok?r.json():{}).then(c=>{
-    if(c.introVideoUrl){const holder=document.getElementById('intro-video');const stage=holder&&holder.querySelector('.video-stage');if(stage){const video=document.createElement('video');video.className='video-embed';video.controls=true;video.preload='metadata';video.setAttribute('playsinline','');video.setAttribute('aria-label','Introduction video by Adnan Hamza');video.src=c.introVideoUrl;stage.replaceChildren(video);video.addEventListener('play',()=>track('video_play'));}}
+    if(c.introVideoUrl){const holder=document.getElementById('intro-video');const stage=holder&&holder.querySelector('.video-stage');if(stage){const video=document.createElement('video');video.className='video-embed';video.controls=true;video.preload='metadata';video.setAttribute('playsinline','');video.setAttribute('aria-label','Introduction video by Adnan Hamza');video.src=c.introVideoUrl;video.poster='/assets/video-cover.svg';stage.replaceChildren(video);video.addEventListener('play',()=>track('video_play'));}}
   }).catch(()=>{});
   // Scroll-triggered reveals (disabled automatically for reduced-motion users via CSS)
   const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;

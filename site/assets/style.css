@@ -661,3 +661,63 @@ body {
   body { animation: none; }
   .hero::before { animation: none; }
 }
+
+
+/* Ambient background v2: deliberately visible, but soft and never flashing. */
+body { isolation: isolate; overflow-x: clip; }
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+  width: min(72vw, 900px);
+  height: min(72vw, 900px);
+  border-radius: 50%;
+  filter: blur(18px);
+  will-change: transform;
+}
+body::before {
+  top: -22%;
+  right: -28%;
+  background: radial-gradient(circle, rgba(240,173,69,.30) 0%, rgba(240,173,69,.14) 25%, rgba(240,173,69,.04) 52%, transparent 72%);
+  animation: amber-orb-one 20s ease-in-out infinite alternate;
+}
+body::after {
+  bottom: -34%;
+  left: -30%;
+  background: radial-gradient(circle, rgba(215,139,60,.25) 0%, rgba(215,139,60,.10) 29%, rgba(215,139,60,.03) 54%, transparent 72%);
+  animation: amber-orb-two 24s ease-in-out infinite alternate;
+}
+body > main,
+body > footer,
+body > .site-footer { position: relative; z-index: 1; }
+/* A noticeable breathing amber glow behind the introductory panel. */
+.hero::before {
+  width: min(65vw, 780px);
+  right: -9%;
+  top: -8%;
+  background: radial-gradient(circle, rgba(240,173,69,.25) 0%, rgba(240,173,69,.12) 30%, transparent 68%);
+  animation: ambient-halo-breathe 11s ease-in-out infinite alternate;
+}
+@keyframes amber-orb-one {
+  from { transform: translate3d(-15vw,-5vh,0) scale(.92); }
+  to { transform: translate3d(-31vw,28vh,0) scale(1.18); }
+}
+@keyframes amber-orb-two {
+  from { transform: translate3d(6vw,3vh,0) scale(.92); }
+  to { transform: translate3d(30vw,-34vh,0) scale(1.17); }
+}
+@keyframes ambient-halo-breathe {
+  from { transform: translate3d(-20px,-5px,0) scale(.89); opacity: .68; }
+  to { transform: translate3d(24px,17px,0) scale(1.14); opacity: 1; }
+}
+@media (max-width: 767px) {
+  body::before, body::after { width: 108vw; height: 108vw; }
+  body::before { top: 0; right: -52%; }
+  body::after { bottom: -14%; left: -54%; }
+  .hero::before { width: 100vw; right: -17%; top: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body::before, body::after, .hero::before { animation: none !important; }
+}

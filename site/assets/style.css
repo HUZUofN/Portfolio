@@ -614,3 +614,50 @@ p{font-family:var(--body)}
 @media(max-width:1050px){.site-brand-logo{width:208px}.site-header nav{gap:18px}}
 @media(max-width:760px){.site-brand-logo{width:200px}.video-stage-branded{min-height:310px;padding:22px}.video-cover-copy h2{font-size:28px}.hero h1{font-size:clamp(39px,9.5vw,58px)}}
 @media(max-width:420px){.site-brand-logo{width:170px}.video-stage-branded{min-height:285px;padding:17px}.video-cover-copy{gap:6px}.video-cover-copy h2{font-size:25px}.video-stage-branded .play-button{font-size:12px}}
+
+
+/* Ambient background preview — calm amber illumination, no scripts or assets. */
+body {
+  background-color: var(--page-bg);
+  background-image:
+    radial-gradient(ellipse 55% 42% at 10% 12%, rgba(240,173,69,.085), transparent 72%),
+    radial-gradient(ellipse 52% 45% at 88% 38%, rgba(255,208,131,.055), transparent 75%),
+    radial-gradient(ellipse 48% 42% at 24% 90%, rgba(104,124,142,.075), transparent 74%);
+  background-size: 125% 125%;
+  animation: ambient-background-drift 34s ease-in-out infinite alternate;
+}
+@keyframes ambient-background-drift {
+  from { background-position: 0% 0%, 100% 30%, 5% 90%; }
+  to   { background-position: 12% 10%, 85% 55%, 28% 75%; }
+}
+/* A restrained, diffuse light behind the opening section, never over text. */
+.hero {
+  position: relative;
+  isolation: isolate;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  width: min(56vw, 680px);
+  aspect-ratio: 1;
+  right: -8%;
+  top: 2%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(240,173,69,.095) 0%, rgba(240,173,69,.025) 40%, transparent 70%);
+  transform: translate3d(0,0,0);
+  animation: ambient-halo-float 18s ease-in-out infinite alternate;
+}
+@keyframes ambient-halo-float {
+  from { transform: translate3d(-10px, 0, 0) scale(.96); opacity:.7; }
+  to   { transform: translate3d(20px, 14px, 0) scale(1.06); opacity:1; }
+}
+@media (max-width: 767px) {
+  body { background-size: 165% 165%; }
+  .hero::before { width: 90vw; right: -12%; top: 8%; opacity: .55; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body { animation: none; }
+  .hero::before { animation: none; }
+}

@@ -37,6 +37,10 @@
 .project-cards-grid>.project-card .project-remove-x{position:absolute;top:0;right:0;display:grid;place-items:center;width:34px;height:34px;padding:0;margin:0;border:0;border-radius:0 12px 0 9px;background:rgba(180,67,75,.045);color:#ba6470;font-size:25px;font-weight:400;line-height:1;cursor:pointer;transition:background-color .15s ease,color .15s ease;z-index:2}
 .project-cards-grid>.project-card .project-remove-x:hover,.project-cards-grid>.project-card .project-remove-x:focus-visible{background:#d71920;color:white;border-color:transparent}
 @media(max-width:860px){.app-shell .page-watermark{left:0}.app-shell .page-watermark img{width:min(72vw,560px)}.app-shell .sidebar .brand-logo{width:126px;margin:0 10px 0 0}}
+
+/* Sidebar logo micro-adjustment: 1% smaller, slightly lower, air before account */
+@media(min-width:861px){.app-shell .sidebar .brand-logo{width:178px;margin:1px auto 15px}.app-shell .sidebar .current-account{margin-top:0}}
+@media(max-width:860px){.app-shell .sidebar .brand-logo{width:125px;margin:3px 10px 8px 0}}
 </style></head><body><div id="app"><div class="auth-scene"><div class="auth-card">Loading secure portal…</div></div></div><script nonce="static-site" type="module">
 import {createClient} from 'https://esm.sh/@supabase/supabase-js@2.57.0';
 const API='https://jzpumnqzrjakgpgeqdyp.supabase.co', KEY='sb_publishable_Vv31PGASb0P-qCrwUohAhA_3abU0K_g', SITE=location.origin+location.pathname;
